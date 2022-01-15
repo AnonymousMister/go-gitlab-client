@@ -1,0 +1,74 @@
+{
+  "id": 4095,
+  "iid": 194,
+  "project_id": 4,
+  "title": "测试议题11112313测试议题11112313测试议题11112313测试议题11112313测试议题11112313测试议题11112313测试议题11112313测试议题11112313测试议题11112313测试议题11112313测试议题11112313测试议题11112313测试议题11112313测试议题11112313asdasdad",
+  "description": "#193 \n这是说的引用![home](/uploads/e8630c610f792d62184f5faa722c56bb/home.png)",
+  "state": "opened",
+  "created_at": "2021-12-24T08:27:14.353Z",
+  "updated_at": "2021-12-26T15:55:28.150Z",
+  "closed_at": null,
+  "closed_by": null,
+  "labels": [
+    "严重1"
+  ],
+  "milestone": null,
+  "assignees": [
+    {
+      "id": 5,
+      "name": "指派人",
+      "username": "zhipair",
+      "state": "active",
+      "avatar_url": "http://localhost:8080/uploads/-/system/user/avatar/54/avatar.png",
+      "web_url": "http://localhost:8080/zhipair"
+    }
+  ],
+  "author": {
+    "id": 1,
+    "name": "创建人",
+    "username": "chuangjianr",
+    "state": "active",
+    "avatar_url": "https://www.gravatar.com/avatar/db3fb26a9d758a6101e88e459a9427b1?s=80&d=identicon",
+    "web_url": "http://localhost:8080/chuangjianr"
+  },
+  "assignee": {
+    "id": 5,
+    "name": "指派人",
+    "username": "zhipair",
+    "state": "active",
+    "avatar_url": "http://localhost:8080/uploads/-/system/user/avatar/54/avatar.png",
+    "web_url": "http://localhost:8080/zhipair"
+  },
+  "user_notes_count": 8,
+  "merge_requests_count": 0,
+  "upvotes": 0,
+  "downvotes": 0,
+  "due_date": "2021-12-01",
+  "confidential": false,
+  "discussion_locked": null,
+  "web_url": "http://localhost:8080/REPORT_GROUP/wjrb/-/issues/194",
+  "time_stats": {
+    "time_estimate": 0,
+    "total_time_spent": 0,
+    "human_time_estimate": null,
+    "human_total_time_spent": null
+  },
+  "task_completion_status": {
+    "count": 0,
+    "completed_count": 0
+  },
+  "has_tasks": false,
+  "_links": {
+    "self": "http://localhost:8080/api/v4/projects/4/issues/194",
+    "notes": "http://localhost:8080/api/v4/projects/4/issues/194/notes",
+    "award_emoji": "http://localhost:8080/api/v4/projects/4/issues/194/award_emoji",
+    "project": "http://localhost:8080/api/v4/projects/4"
+  },
+  "references": {
+    "short": "#194",
+    "relative": "#194",
+    "full": "REPORT_GROUP/wjrb#194"
+  },
+  "subscribed": false,
+  "moved_to_id": null
+}

@@ -1,0 +1,12 @@
+{
+  "request": {
+    "path": "/api/v4/projects/4/issues/194",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "notes/issue.json",
+    "headers": {
+    }
+  }
+}
