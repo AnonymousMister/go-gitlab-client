@@ -13,9 +13,10 @@ type Events struct {
 }
 
 type Changes struct {
-	UpdatedAt *UpdatedAt `json:"updated_at"`
-	Assignees *Assignees `json:"assignees"`
-	Labels    *Labels    `json:"labels"`
+	UpdatedAt *UpdatedAt    `json:"updated_at"`
+	Assignees *Assignees    `json:"assignees"`
+	Labels    *Labels       `json:"labels"`
+	Title     *ChangesTitle `json:"title"`
 }
 
 /*
@@ -79,4 +80,9 @@ type IssuesText struct {
 	State            string   `json:"state"`
 	Action           string   `json:"action"`
 	Note             string   `json:"note"`
+}
+
+type ChangesTitle struct {
+	Previous string `json:"previous"`
+	Current  string `json:"current"`
 }
