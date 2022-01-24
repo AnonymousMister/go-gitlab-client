@@ -20,3 +20,31 @@ func TestGetIssue(t *testing.T) {
 	assert.IsType(t, new(ResponseMeta), meta)
 
 }
+
+func TestGetMyIssues(t *testing.T) {
+
+	gitlab := NewGitlab("http://192.168.1.8:18080", "", "XZAHghaEr5gmRU1GscPG")
+
+	issues, meta, err := gitlab.GetMyIssues(&QIssuesRequest{
+		Labels: "优化",
+	})
+
+	assert.Equal(t, 4, len(issues))
+	assert.NoError(t, err)
+	assert.IsType(t, new(ResponseMeta), meta)
+
+}
+
+func TestUpIssue(t *testing.T) {
+
+	gitlab := NewGitlab("http://192.168.1.8:18080", "", "XZAHghaEr5gmRU1GscPG")
+
+	issue, meta, err := gitlab.UpIssue("4", "216", &UpIssueRequest{
+		StateEvent: "close",
+	})
+
+	assert.Equal(t, 4, issue.ProjectId)
+	assert.NoError(t, err)
+	assert.IsType(t, new(ResponseMeta), meta)
+
+}

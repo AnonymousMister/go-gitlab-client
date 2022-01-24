@@ -2,11 +2,13 @@ package gitlab
 
 import (
 	"encoding/json"
+	"strconv"
 )
 
 const (
 	ProjectIssuesApiPath   = "/projects/:id/issues"
 	ProjectIssueOneApiPath = "/projects/:id/issues/:issue_iid"
+	IssuesApiPath          = "/issues"
 )
 
 type Issue struct {
@@ -51,6 +53,16 @@ type IssueRequest struct {
 	Labels      string `json:"labels,omitempty"`
 }
 
+type QIssuesRequest struct {
+	PaginationOptions
+	State  string `json:"state,omitempty" url:"state,omitempty"`
+	Labels string `json:"labels,omitempty" url:"labels,omitempty"`
+}
+
+type UpIssueRequest struct {
+	StateEvent string `json:"state_event,omitempty"`
+}
+
 func (g *Gitlab) GetIssue(projectId string, issueIId string) (issue *Issue, meta *ResponseMeta, err error) {
 	params := map[string]string{
 		":id":        projectId,
@@ -91,5 +103,41 @@ func (g *Gitlab) AddIssue(projectId string, req *IssueRequest) (issue *Issue, me
 		panic(err)
 	}
 
+	return
+}
+func (g *Gitlab) GetMyIssues(qIssues *QIssuesRequest) (issues []*Issue, meta *ResponseMeta, err error) {
+
+	u := g.ResourceUrlQ(IssuesApiPath, nil, qIssues)
+	data, meta, err := g.buildAndExecRequest("GET", u.String(), nil)
+	if err != nil {
+		return
+	}
+	issues = []*Issue{}
+	err = json.Unmarshal(data, &issues)
+	if err != nil {
+		panic(err)
+	}
+	return
+}
+
+func (g *Gitlab) UpIssue(projectId int, issueIId int, upIssues *UpIssueRequest) (issue *Issue, meta *ResponseMeta, err error) {
+	params := map[string]string{
+		":id":        strconv.Itoa(projectId),
+		":issue_iid": strconv.Itoa(issueIId),
+	}
+	u := g.ResourceUrl(ProjectIssueOneApiPath, params)
+	upIssuesBody, err := json.Marshal(upIssues)
+	if err != nil {
+		return
+	}
+	data, meta, err := g.buildAndExecRequest("PUT", u.String(), upIssuesBody)
+	if err != nil {
+		return
+	}
+	issue = new(Issue)
+	err = json.Unmarshal(data, issue)
+	if err != nil {
+		panic(err)
+	}
 	return
 }
