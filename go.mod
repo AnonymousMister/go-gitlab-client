@@ -2,6 +2,13 @@ module github.com/AnonymousMister/go-gitlab-client/v2
 
 go 1.17
 
+retract (
+	v2.0.0-beta.6
+	v2.0.0-beta.5
+	v2.0.0-beta.1
+)
+
+
 require (
 	github.com/google/go-querystring v1.1.0
 	github.com/iancoleman/strcase v0.2.0
@@ -9,6 +16,7 @@ require (
 	github.com/stretchr/testify v1.7.0
 	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
 )
+
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
